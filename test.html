@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<style>
+    #gambar{
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+        display: block;
+        border-radius: 0%;
+    }
+</style>
+<body>
+    <center>
+        <p>Warna kesatu - <input type="color" id="warna1" name="warna1"> </p>
+        <p>Warna kedua - <input type="color" id="warna2" name="warna2"> </p>
+        <p>Warna ketiga - <input type="color" id="warna3" name="warna3"> </p>
+        <button type="button" onclick="warna()">Submit</button>
+        <button id="gambar" onclick="ubahGambar()" style="display: none;"></button>
+    </center>
+    <script>
+        let warna1, warna2, warna3;
+        function warna(){
+            warna1 = document.getElementById("warna1").value;
+            warna2 = document.getElementById("warna2").value;
+            warna3 = document.getElementById("warna3").value;
+        
+        console.log(warna1);
+        console.log(warna2);
+        console.log(warna3);
+
+
+        gambarArray = [
+            {backgroundColor:'gray',borderRadius:'0'},
+            {backgroundColor: warna1,borderRadius:'50%'},
+            {backgroundColor: warna2,borderRadius:'0'},
+            {backgroundColor: warna3,borderRadius:'50%'}
+        ];
+        document.getElementById("gambar").style.display='block';
+        }
+
+        let gambarArray = [
+            {backgroundColor:'gray',borderRadius:'0'},
+            {backgroundColor:'',borderRadius:'50%'},
+            {backgroundColor:'',borderRadius:'0'},
+            {backgroundColor:'',borderRadius:'50%'}
+        ];
+
+        let urutan = 0;
+
+        function ubahGambar(){
+            urutan = (urutan + 1)%
+            gambarArray.length;
+            const elemenGambar = document.getElementById('gambar');
+            const gambarBerikutnya = gambarArray[urutan];
+
+            elemenGambar.style.backgroundColor = gambarBerikutnya.backgroundColor;
+            elemenGambar.style.borderRadius = gambarBerikutnya.borderRadius;
+        }
+
+    </script>
+</body>
+</html>
